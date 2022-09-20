@@ -1,0 +1,63 @@
+/* .container{
+    box-sizing: border-box;
+    width: 100%;
+    margin:10px;
+    padding: 5px;
+    border:1px solid black;
+} */
+
+/* .container{
+    box-sizing: border-box;
+    width: 100%;
+    margin:10px;
+    padding: 5px;
+    border:1px solid black;
+} */
+/* label{
+    margin-top: 20px;
+} */
+
+/* .modal-dialog{
+    display: block;
+  position: relative;
+  margin-top: 20px;
+} */
+/* .imagecon{
+    position: absolute;
+    background-color: #d9e0ff;
+    top: 20px;
+    right:35%;
+  
+}
+.text-box{
+    margin-top: 20px;
+    max-width: 600px;
+}
+.text-box div{
+    font-size: 45px;
+    margin-bottom: 20px;
+    color: #3f51b5;
+}
+.bttn{
+    position:absolute;
+    top: 25%;
+    right: 35%;
+}
+.back{
+    position:absolute;
+} */
+
+#details {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.img-thumbnail{
+    max-width: 50%;
+}

@@ -1,0 +1,434 @@
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="savedata()">
+      <mat-stepper linear #stepper>
+        <mat-step [stepControl]="userForm" label="Personal details">
+          <div class="row">
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> FirstName </mat-label>
+
+                <input
+                  matInput
+                  maxlength="15"
+                  inputmode="text"
+                  placeholder="Type name"
+                  formControlName="firstName"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> LastName </mat-label>
+
+                <input
+                  matInput
+                  maxlength="15"
+                  inputmode="text"
+                  placeholder="Type lastname"
+                  formControlName="lastName"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> Age </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type age"
+                  formControlName="age"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> email </mat-label>
+
+                <input
+                  matInput
+                  inputmode="email"
+                  placeholder="Type email"
+                  formControlName="email"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> macAddress </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type macAddress"
+                  formControlName="macAddress"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> gender </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type gender"
+                  formControlName="gender"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> bday </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type bday"
+                  formControlName="bday"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> domain </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type domain"
+                  formControlName="domain"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> imageurl </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type imageurl"
+                  formControlName="imageurl"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> ip </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type ip"
+                  formControlName="ip"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> username </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type username"
+                  formControlName="username"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="standard">
+                <mat-label> password </mat-label>
+
+                <input
+                  matInput
+                  inputmode="password"
+                  placeholder="Type password"
+                  formControlName="password"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-form-field appearance="standard">
+            <mat-label> university </mat-label>
+
+            <input
+              matInput
+              inputmode="text"
+              placeholder="Type university"
+              formControlName="university"
+              #nameInput
+            />
+          </mat-form-field>
+        </mat-step>
+        <mat-step
+          formGroupName="uDetail"
+          [stepControl]="userForm.uDetail"
+          label="Personal details"
+        >
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Address </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type address"
+                  formControlName="address"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> city </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type city"
+                  formControlName="city"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> state </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type state"
+                  formControlName="state"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step
+          formGroupName="uBank"
+          [stepControl]="userForm.uBank"
+          label="Bank Details"
+        >
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> cardExpire </mat-label>
+
+                <input
+                  matInput
+                  inputmode="date"
+                  placeholder="Type card_expire"
+                  formControlName="cardExpire"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> cardNumber </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type card_number"
+                  formControlName="cardNumber"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> card_type </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type card_type"
+                  formControlName="cardType"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> currency </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type currency"
+                  formControlName="currency"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> iban </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type iban"
+                  formControlName="iban"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step formGroupName="uCompany" [stepControl]="userForm.uCompany">
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Address </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type address"
+                  formControlName="address"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> city </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type city"
+                  formControlName="city"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> state </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type state"
+                  formControlName="state"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Latitude </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type lat"
+                  formControlName="lat"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Langitude </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type lng"
+                  formControlName="lng"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> postal_code </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type postalcode"
+                  formControlName="postalcode"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Compnay name </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type name"
+                  formControlName="name"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Department </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type department"
+                  formControlName="department"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="standard">
+                <mat-label> Title </mat-label>
+
+                <input
+                  matInput
+                  inputmode="text"
+                  placeholder="Type title"
+                  formControlName="title"
+                  #nameInput
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button type="submit">Submit</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </form>
+  </div>
+</mat-dialog-content>

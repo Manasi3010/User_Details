@@ -1,0 +1,57 @@
+<div>
+  <button mat-raised-button (click)="Open()">Add</button>
+</div>
+<div class="container">
+  <h3>User Data</h3>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="ViewUser(element.id)"
+          >
+            View
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleterow(element.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      #paginator
+      [pageSize]="pageSize"
+      [showFirstLastButtons]="true"
+    >
+    </mat-paginator>
+  </div>
+</div>

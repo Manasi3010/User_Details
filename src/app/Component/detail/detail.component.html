@@ -1,0 +1,85 @@
+<div class="back">
+  <button class="btn btn-primary rounded-circle" (click)="back()">&lt;</button>
+</div>
+<div class="container" id="details" *ngIf="selecteduser">
+  <div class="left-side">
+    <label>Name:{{ selecteduser.firstName }} {{ selecteduser.lastName }}</label>
+    <br />
+    <label>Age:{{ selecteduser.age }}</label>
+    <br />
+    <label>Email:{{ selecteduser.email }}</label>
+    <br />
+    <label>MacAddress:{{ selecteduser.macAddress }}</label>
+    <br />
+    <label>Gender:{{ selecteduser.gender }}</label>
+    <br />
+    <label>BirthDate:{{ selecteduser.bday }}</label>
+    <br />
+    <div class="container3">
+      <mat-tab-group animationDuration="2000ms">
+        <mat-tab label="Address">
+          <form>
+            <label> Address:{{ selecteduser.uDetail.address }} </label
+            ><br /><label> City:{{ selecteduser.uDetail.city }}</label>
+
+            <br />
+            <label> State:{{ selecteduser.uDetail.state }}</label>
+            <br />
+          </form>
+        </mat-tab>
+        <mat-tab label="Bank">
+          <form>
+            <label>CardExpire:{{ selecteduser.uBank.cardExpire }}</label>
+            <br />
+            <label>CardNumber:{{ selecteduser.uBank.cardNumber }}</label>
+            <br />
+            <label>CardType:{{ selecteduser.uBank.cardType }}</label>
+            <br />
+            <label>Currency:{{ selecteduser.uBank.currency }}</label>
+            <br />
+            <label>iban:{{ selecteduser.uBank.iban }}</label>
+            <br />
+          </form>
+        </mat-tab>
+        <mat-tab label="Company">
+          <form>
+            <label>Adress:{{ selecteduser.uCompany.address }}</label>
+            <br />
+            <!-- <label>City:{{ selecteduser.company.address.city }}</label>
+            <br /> -->
+            <label>Postal Code:{{ selecteduser.uCompany.postalCode }}</label>
+            <br />
+            <label>State:{{ selecteduser.uCompany.state }}</label>
+            <br />
+            <label>Department:{{ selecteduser.uCompany.department }}</label>
+            <br />
+            <label>company Name:{{ selecteduser.uCompany.name }}</label>
+            <br />
+            <label>Title:{{ selecteduser.uCompany.title }}</label>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+  <div class="rignt-side">
+    <div class="image-container">
+      <img class="img-thumbnail" src="{{ selecteduser.imageurl }}" />
+    </div>
+    <div class="btns">
+      <button
+        type="button"
+        class="btn btn-success d-block mt-3 w-50"
+        (click)="showDetails()"
+      >
+        Details
+      </button>
+      <button
+        type="button"
+        class="btn btn-success d-block mt-3 w-50"
+        (click)="updateuser(selecteduser.id)"
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+</div>

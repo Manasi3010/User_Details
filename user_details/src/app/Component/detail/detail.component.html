@@ -1,0 +1,327 @@
+<div>
+  <button class="btn btn-primary" (click)="back()">Back to Home</button>
+</div>
+<div class="container" id="details" *ngIf="selecteduser">
+  <div class="container1">
+    <img class="img-thumbnail" src="{{ selecteduser.image }}" />
+  </div>
+  <div class="container2">
+    <label>Name:{{ selecteduser.firstName }} {{ selecteduser.lastName }}</label>
+    <br />
+    <label>Age:{{ selecteduser.age }}</label>
+    <br />
+    <label>Email:{{ selecteduser.email }}</label>
+    <br />
+    <label>MacAddress:{{ selecteduser.macAddress }}</label>
+    <br />
+    <label>Gender:{{ selecteduser.gender }}</label>
+    <br />
+    <label>BirthDate:{{ selecteduser.birthDate }}</label>
+    <br />
+    <button
+      style="margin: 50px; padding: 10px"
+      type="button"
+      (click)="openPopup()"
+      class="btn btn-success"
+    >
+      Edit
+    </button>
+    <div
+      class="modal"
+      tabindex="-1"
+      role="dialog"
+      [ngStyle]="{ display: displayStyle }"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">User Details</h4>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="userForm" (ngSubmit)="saveData()">
+              <div class="form-group" formGroupName="personal">
+                <p>
+                  Name:<input type="text" formControlName="firstName" />
+                  Age:<input type="text" formControlName="age" /> <br /><br />
+                  Email:<input type="text" formControlName="email" />
+                  MacAddress:<input type="text" formControlName="macAddress" />
+                  <br />
+                  <br />
+                  BirthDate:<input type="text" formControlName="birthDate" />
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="closePopup()"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-danger">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container3">
+    <mat-tab-group animationDuration="2000ms" *ngIf="selecteduser">
+      <mat-tab label="Address">
+        <form>
+          <label> Address:{{ selecteduser.address.address }} </label
+          ><br /><label> City:{{ selecteduser.address.city }}</label>
+          <label>
+            <br />Postal Code:{{ selecteduser.address.postalCode }}</label
+          >
+          <br />
+          <label> State:{{ selecteduser.address.state }}</label>
+          <br />
+          <button
+            style="margin: 50px; padding: 10px"
+            type="button"
+            (click)="openPopup2()"
+            class="btn btn-success"
+          >
+            Edit
+          </button>
+          <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            [ngStyle]="{ display: displayStyle2 }"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Address Details</h4>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="userForm" (ngSubmit)="saveData()">
+                    <div class="form-group" formGroupName="address">
+                      <p>
+                        Address: :<input
+                          type="text"
+                          placeholder="{{ selecteduser.address.address }}"
+                          formControlName="address"
+                        />
+                        <br />
+                        City :<input
+                          type="text"
+                          placeholder="{{ selecteduser.address.city }}"
+                          formControlName="city"
+                        />
+                        <br /><br />
+                        postalCode:<input
+                          type="text"
+                          placeholder="{{ selecteduser.address.postalCode }}"
+                          formControlName="postalcode"
+                        />
+                        State:<input
+                          type="text"
+                          placeholder="{{ selecteduser.address.state }}"
+                          formControlName="state"
+                        />
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="closePopup2()"
+                      >
+                        Close
+                      </button>
+                      <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Bank">
+        <form>
+          <label>CardExpire:{{ selecteduser.bank.cardExpire }}</label>
+          <br />
+          <label>CardNumber:{{ selecteduser.bank.cardNumber }}</label>
+          <br />
+          <label>CardType:{{ selecteduser.bank.cardType }}</label>
+          <br />
+          <label>Currency:{{ selecteduser.bank.currency }}</label>
+          <br />
+          <label>iban:{{ selecteduser.bank.iban }}</label>
+          <br />
+          <button
+            style="margin: 50px; padding: 10px"
+            type="button"
+            (click)="openPopup1()"
+            class="btn btn-success"
+          >
+            Edit
+          </button>
+          <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            [ngStyle]="{ display: displayStyle1 }"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">selecteduser.bank Details</h4>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="userForm" (ngSubmit)="saveData()">
+                    <div class="form-group" formGroupName="bank">
+                      <p>
+                        CardExpire: :<input
+                          type="text"
+                          placeholder="{{ selecteduser.bank.cardExpire }}"
+                          formControlName="icardexpire"
+                        />
+                        <br />
+                        CardNumber :<input
+                          type="text"
+                          placeholder="{{ selecteduser.bank.cardNumber }}"
+                          formControlName="icardnum"
+                        />
+                        <br /><br />
+                        CardType:<input
+                          type="text"
+                          placeholder="{{ selecteduser.bank.cardType }}"
+                          formControlName="icardtype"
+                        />
+                        Currency:<input
+                          type="text"
+                          placeholder="{{ selecteduser.bank.currency }}"
+                          formControlName="icurrency"
+                        />
+                        <br />
+                        <br />
+                        iban:<input
+                          type="text"
+                          placeholder="{{ selecteduser.bank.iban }}"
+                          formControlName="iiban"
+                        />
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="closePopup1()"
+                      >
+                        Close
+                      </button>
+                      <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Company">
+        <form>
+          <label>Adress:{{ selecteduser.company.address.address }}</label>
+          <br />
+          <label>City:{{ selecteduser.company.address.city }}</label>
+          <br />
+          <label
+            >Postal Code:{{ selecteduser.company.address.postalCode }}</label
+          >
+          <br />
+          <label>State:{{ selecteduser.company.address.state }}</label>
+          <br />
+          <label>Department:{{ selecteduser.company.department }}</label>
+          <br />
+          <label
+            >selecteduser.company Name:{{ selecteduser.company.name }}</label
+          >
+          <br />
+          <label>Title:{{ selecteduser.company.title }}</label>
+          <button
+            style="margin: 50px; padding: 10px"
+            type="button"
+            (click)="openPopup3()"
+            class="btn btn-success"
+          >
+            Edit
+          </button>
+          <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            [ngStyle]="{ display: displayStyle3 }"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Address Details</h4>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="userForm" (ngSubmit)="saveData()">
+                    <div class="form-group" formGroupName="companyAddress">
+                      <p>
+                        Address: :<input
+                          type="text"
+                          placeholder="{{
+                            selecteduser.company.address.address
+                          }}"
+                          formControlName="iaddress"
+                        />
+                        <br />
+                        City :<input
+                          type="text"
+                          placeholder="{{ selecteduser.company.address.city }}"
+                          formControlName="icity"
+                        />
+                        <br /><br />
+                        postalCode:<input
+                          type="text"
+                          placeholder="{{
+                            selecteduser.company.address.postalCode
+                          }}"
+                          formControlName="ipostalcode"
+                        />
+                        State:<input
+                          type="text"
+                          placeholder="{{ selecteduser.company.address.state }}"
+                          formControlName="istate"
+                        />
+                        Department:<input
+                          type="text"
+                          placeholder="{{ selecteduser.company.department }}"
+                          formControlName="idepartment"
+                        />
+                        Title:<input
+                          type="text"
+                          placeholder="{{ selecteduser.company.title }}"
+                          formControlName="ititle"
+                        />
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="closePopup3()"
+                      >
+                        Close
+                      </button>
+                      <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
